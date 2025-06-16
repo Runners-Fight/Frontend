@@ -1,7 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
-  content: ['./App.{js,jsx,ts,tsx}'],
+  content: [
+    './App.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
+    './src/**/*.{js,jsx,ts,tsx}',
+  ],
   presets: [require('nativewind/preset')],
   theme: {
     extend: {
@@ -136,9 +140,9 @@ module.exports = {
         'grey-15': '#2E363A',
         'grey-10': '#1E2427',
         'grey-05': '#171B1C',
-        'background-normal': '##0E0E0E',
+        'background-normal': '#0E0E0E',
         'background-elevated': '#0E0E0E80',
-        'text-primary': '##FDFDFD',
+        'text-primary': '#FDFDFD',
         'text-secondary': '#999FA4',
       },
     },
