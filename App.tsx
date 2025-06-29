@@ -1,21 +1,25 @@
-import {useColorScheme, View, SafeAreaView} from 'react-native';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
+import OnBoardingScreen from '@screens/OnBoarding';
+import HomeScreen from '@screens/Home';
+import MyScreen from '@screens/My';
+import AlertScreen from '@screens/Alert';
+import CrewScreen from '@screens/Crew';
+import {createStaticNavigation} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import './global.css';
 
+const RootStack = createNativeStackNavigator({
+  screens: {
+    OnBoarding: OnBoardingScreen,
+    Home: HomeScreen,
+    My: MyScreen,
+    Alert: AlertScreen,
+    Crew: CrewScreen,
+  },
+});
+
+const Navigation = createStaticNavigation(RootStack);
+
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle} className="flex-1">
-      <View className="flex-1 items-center justify-center" />
-      {/* 요기에 본인이 만든 컴포넌트 테스트하세요~ 가운데정렬됩니당 SafeAreaView컴포넌트로 묶어놔서 노치신경안써도됩니다 */}
-    </SafeAreaView>
-  );
+  return <Navigation />;
 }
 export default App;
